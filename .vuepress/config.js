@@ -9,4 +9,28 @@ module.exports = {
       lang: 'zh-TW',
     }
   },
+//   plugins: ['@vuepress/blog'],
+    plugins: [
+        ['@vuepress/blog', {
+            directories: [{
+                id: 'article',
+                dirname: '_articles',
+                // itemPermalink: '/articles/:slug',
+                itemPermalink: '/articles/:slug',
+                pagination: {
+                    lengthPerPage: 2,
+                },
+            }],
+            sitemap: {
+                hostname: 'https://nateritter.com'
+            },
+        }]
+    ],
+    themeConfig: {
+        author: 'Nate Ritter',
+        nav: [
+            { text: 'Home', link: '/' },
+            { text: 'Articles 文章', link: '/articles/' },
+        ],
+    }
 };
